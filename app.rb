@@ -9,16 +9,17 @@ Estruturando o arquivo
 class Filme
 	attr_accessor :nome, :ano, :diretor, :descricao
 
-#nome = nil
-#ano = 0
-#diretor = nil
-#descricao = nil
 	def initialize(nome = nil, ano = 0, diretor = nil, descricao = nil)
 	end
 end
 
 aleat = rand(0..39) * 4 + 1
 numero_linha = 0
+nome1 = nil
+ano1 = 0
+diretor1 = nil
+descricao1 = nil
+
 		File.open('\Users\rtkat\Dev\Projeto\Lib\Documento.txt', 'r').each_line do |arq|
 			numero_linha += 1
 			if aleat == numero_linha
@@ -34,9 +35,9 @@ numero_linha = 0
 				descricao1 = arq
 			end
 		end
+a = Filme.new(nome1, ano1, diretor1, descricao1)
+
 puts nome1
-puts ano1
-puts diretor1
-puts descricao1
-#a = Filme.new(nome, ano, diretor, descricao)
+puts a.nome
+
 
