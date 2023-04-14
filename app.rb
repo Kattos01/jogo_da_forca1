@@ -10,7 +10,26 @@ class Filme
 	attr_accessor :nome, :ano, :diretor, :descricao
 
 	def initialize(nome = nil, ano = 0, diretor = nil, descricao = nil)
+		@nome = nome
+		@ano = ano
+		@diretor = diretor
+		@descricao = descricao
 	end
+
+	def mascarar_filme
+		qtde_de_palavras = nome.split
+		cont_palavras = qtde_de_palavras.length
+		count = 0
+		mask = "_ "
+		filme_mascarado_novo = nil
+
+		until count == cont_palavras
+			count += 1
+			filme_mascarado_novo = qtde_de_palavras[qtde_palavras - 1].length.times {mask}
+			filme_mascarado = filme_mascarado_novo
+		end
+	end
+
 end
 
 aleat = rand(0..39) * 4 + 1
@@ -26,7 +45,7 @@ descricao1 = nil
 				nome1 = arq
 			end
 			if aleat + 1 == numero_linha
-				ano1 = arq
+				ano1 = arq.to_i
 			end
 			if aleat + 2 == numero_linha
 				diretor1 = arq
@@ -35,9 +54,9 @@ descricao1 = nil
 				descricao1 = arq
 			end
 		end
-a = Filme.new(nome1, ano1, diretor1, descricao1)
 
-puts nome1
-puts a.nome
+lista_filme = Filme.new(nome1, ano1, diretor1, descricao1)
 
+lista_filme.mascarar_filme
 
+puts filme_mascarado
