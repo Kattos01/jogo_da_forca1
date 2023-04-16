@@ -1,5 +1,4 @@
 #Escolhendo o filme
-
 aleat = rand(0..39) * 4 + 1
 numero_linha = 0
 nome_filme = nil
